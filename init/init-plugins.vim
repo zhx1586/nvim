@@ -46,8 +46,7 @@ endif
 " coc-nvim
 "------------------------------------------------------------
 if index(g:plug_list, 'coc-nvim') >= 0
-    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-    "Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+    Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 
     " 关闭内置补全菜单信息
     set shortmess+=c
@@ -66,11 +65,13 @@ if index(g:plug_list, 'coc-nvim') >= 0
 
     " 使用 <cr> 确认补全
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
     " Remap keys for gotos
     nmap <silent> gd <Plug>(coc-definition)
     nmap <silent> gy <Plug>(coc-type-definition)
     nmap <silent> gi <Plug>(coc-implementation)
     nmap <silent> gr <Plug>(coc-references)
+
     " Use K to show documentation in preview window
     nnoremap <silent> K :call <SID>show_documentation()<CR>
 
