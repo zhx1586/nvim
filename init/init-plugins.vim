@@ -4,7 +4,7 @@
 "
 "============================================================
 
-let g:plug_list = ['airline']
+let g:plug_list = ['airline', 'nerdtree', 'taglist', 'gitgutter']
 let g:plug_list += ['coc-nvim', 'vim-go']
 
 call plug#begin('$HOME/.config/nvim/plugged')
@@ -31,6 +31,64 @@ if index(g:plug_list, 'airline') >= 0
     let g:airline#extensions#csv#enable = 0
     let g:airline#extensions#vimagit#enable = 0
     let g:airline#extensions#tabline#enabled=1
+endif
+
+
+"------------------------------------------------------------
+" nerdtree
+"------------------------------------------------------------
+if index(g:plug_list, 'nerdtree')
+    Plug 'scrooloose/nerdtree'
+
+    " 配置 NERDTree 快捷键
+    nmap <silent><F8> :NERDTreeToggle<CR>
+
+    " 控制光标移动超过一定距离时，自动将焦点调整到中心
+    let NERDTreeAutoCenter=1
+
+    " 默认显示文件，而不是目录
+    let NERDTreeShowFiles=1
+
+    " NERDTree 窗口不显示 signcolumn
+    autocmd FileType nerdtree setlocal signcolumn=no
+endif
+
+
+"------------------------------------------------------------
+" taglist
+"------------------------------------------------------------
+if index(g:plug_list, 'taglist') >= 0
+    Plug 'vim-scripts/taglist.vim'
+    " Plug g:plug_home.'/taglist'
+
+    " 配置 taglist 快捷键
+    nmap <silent><F9> :TlistToggle<CR>
+
+    " 只显示当前缓冲区的列表函数
+    let Tlist_Use_Right_Window=1
+    
+    " 只显示当前缓冲区的列表函数
+    let Tlist_Show_One_File=1
+
+    " 为新编辑的文件自动更新 tag
+    let Tlist_Auto_Update=1
+
+    " 非当前文件，函数列表折叠隐藏
+    let Tlist_File_Fold_Auto_Close=1
+
+    " 当 taglist 窗口为最后一个窗口时，退出 vim
+    let Tlist_Exit_OnlyWindow=1
+
+    " taglist 窗口不显示 signcolumn
+    autocmd FileType taglist setlocal signcolumn=no
+endif
+
+
+"------------------------------------------------------------
+" gitgutter
+"------------------------------------------------------------
+if index(g:plug_list, 'gitgutter') >=0
+    Plug 'airblade/vim-gitgutter'
 endif
 
 
